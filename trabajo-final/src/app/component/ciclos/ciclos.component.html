@@ -1,0 +1,36 @@
+<h1 class="d-flex p-2 bd-highlight">Los ciclos son</h1>
+<div class="row mt-4">
+    <div class="col">
+        <h2>DAM</h2>
+        Asignaturas:
+        <br><br>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let nombre of arrayCicloDam">{{nombre}}</li>
+        </ul>
+    </div>
+    <div class="col">
+        <h2>DAW</h2>
+        Asignaturas:
+        <br><br>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let nombre of arrayCicloDaw">{{nombre}}</li>
+        </ul>
+    </div>
+    <div class="row mt-4">
+        <div class="col-3" *ngFor="let item of arrayCiclo">
+            <div class="card" style="width: 18rem;">
+                <img [src]="item.imagen" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.nombre}}</h5>
+                    <ng-container *ngIf="item.nombre.includes('DAM'); else elseTemplate">
+                        <a (click)="verDetalleDam(item.curso,'DAM')" class="btn btn-primary">Ver detalle</a>
+                    </ng-container>
+                    <ng-template #elseTemplate>
+                        <a (click)="verDetalleDaw(item.curso,'DAW')" class="btn btn-primary">Ver detalle</a>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>

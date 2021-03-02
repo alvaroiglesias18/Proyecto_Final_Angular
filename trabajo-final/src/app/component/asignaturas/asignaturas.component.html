@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col">
+        <p style="text-align: center;">Filtrar por nombre:</p>
+        <input type="text" #nombre placeholder="Nombre" class="form-control" type="text" aria-label="nombre">
+    </div>
+    <div class="col">
+        <p style="text-align: center;">Filtrar por ciclo:</p>
+        <input type="text" #ciclo placeholder="Ciclo" class="form-control" type="text" aria-label="ciclo">
+    </div>
+    <div class="col">
+        <p style="text-align: center;">Filtrar por conocimiento:</p>
+        <input type="text" #conocimiento placeholder="Conocimiento" class="form-control" type="text"
+            aria-label="conocimiento">
+    </div>
+</div>
+<br>
+<div class="d-grid gap-2">
+    <button class="btn btn-primary" type="button"
+        (click)="cargarArrayAsignatura(nombre.value,ciclo.value,conocimiento.value)">Filtrar</button>
+</div>
+<br>
+<div class="alert alert-primary" role="alert">
+    El número de asignaturas que cumplen el filtro es: {{arrayAsignaturas.length}}
+</div>
+<br>
+<h1>Los resultados de busqueda son:</h1>
+<div class="row mt-4">
+    <div class="col" *ngFor="let asignatura of arrayAsignaturas">
+        <app-asignatura [asignatura]="asignatura"></app-asignatura>
+    </div>
+</div>
+<br>
